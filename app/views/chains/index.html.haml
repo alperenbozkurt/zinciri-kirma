@@ -1,0 +1,14 @@
+.row
+  .col-md-1
+  .col-md-10
+    -@chains.each do |chain|
+      .col-md-3
+        .panel.panel-success
+          .panel-heading
+            = chain.name
+            = link_to 'x', chain_path(chain), method: :delete
+          .panel-body
+            = chain.desc
+            %br
+            = chain.break
+  .col-md-1

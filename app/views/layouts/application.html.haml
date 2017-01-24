@@ -7,8 +7,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
-    -flash.each do |name, msg|
-      =content_tag :div, msg, class: name
     %nav.navbar.navbar-default
       .container-fluid
         / Brand and toggle get grouped for better mobile display
@@ -18,18 +16,19 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Zinciri Kırma
+          %a.navbar-brand{:href => root_path} Zinciri Kırma
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
-              %a{:href => "#"} Zincirler
             %li
-              %a{:href => "#"} Yeni Zincir
+              %a{:href => chains_path} Zincirler
+            %li
+              %a{:href => new_chain_path} Yeni Zincir
           %ul.nav.navbar-nav.navbar-right
             %li
               %a{:href => "#"} Alperen Bozkurt
             %li
               %a{:href => "#"} Çıkış
-
+    -flash.each do |name, msg|
+      =content_tag :div, msg, class: name
     = yield
