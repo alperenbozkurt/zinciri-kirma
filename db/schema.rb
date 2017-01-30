@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124112713) do
+ActiveRecord::Schema.define(version: 20170130162245) do
 
   create_table "chains", force: :cascade do |t|
     t.string   "name"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20170124112713) do
     t.integer  "break"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rings", force: :cascade do |t|
+    t.integer  "day"
+    t.string   "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "chain_id"
   end
 
 end

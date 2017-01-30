@@ -1,14 +1,20 @@
-.row
-  .col-md-1
-  .col-md-10
-    -@chains.each do |chain|
-      .col-md-3
-        .panel.panel-success
-          .panel-heading
-            = chain.name
-            = link_to 'x', chain_path(chain), method: :delete
-          .panel-body
-            = chain.desc
-            %br
-            = chain.break
-  .col-md-1
+-@chains.each do |chain|
+  .col-md-3.text-center
+    .panel.panel-success
+      .panel-heading
+        = link_to chain.name, chain_path(chain)
+        = link_to 'x', chain_path(chain), method: :delete
+      .panel-body
+        = chain.desc
+        %br
+        %br
+        - if chain.rings.where(day: (Time.new).yday).any?
+          %span.glyphicon.glyphicon-ok
+        - else
+          .panel.panel-default
+            = form_for([chain,@ring]) do |f|
+              = f.hidden_field :chain_id, value: chain.id
+              = f.text_field :info, placeholder: 'Bugün Ne Yaptın', class: 'form-control'
+              = f.hidden_field :day, value: (Time.new).yday
+              %br
+              = f.submit 'Bugünü Ekle', class: 'btn btn-default'

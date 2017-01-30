@@ -1,6 +1,7 @@
 class ChainsController < ApplicationController
   def index
     @chains = Chain.all
+    @ring = Ring.new
   end
   def new
     @chain = Chain.new
@@ -24,6 +25,7 @@ class ChainsController < ApplicationController
   def show
       @gun = 86400
       @fix = (Time.new).yday
+      @chain = Chain.find(params[:id])
   end
   private
   def strong_params

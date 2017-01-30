@@ -1,7 +1,25 @@
--365.times do |i|
-  .col-md-1.text-center
-    .panel.panel-success
-      .panel-heading
-        = i
-      .panel-body
-        XX
+- if @chain.rings.empty?
+  .text-center
+    Boş
+- else
+  -365.times do |i|
+    .col-md-1.text-center.col-xs-3
+      -@chain.rings.each do |ring|
+        - if i == ring.day
+          .panel.panel-success
+            .panel-heading
+              = i
+            .panel-body
+              = ring.info
+        - elsif i > @fix
+          .panel.panel-default
+            .panel-heading
+              = i
+            .panel-body
+              XX
+        - else
+          .panel.panel-danger
+            .panel-heading
+              = i
+            .panel-body
+              xx
