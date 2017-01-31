@@ -1,6 +1,7 @@
 class ChainsController < ApplicationController
+  before_action :chain_owner, only: [:destroy, :show]
   def index
-    @chains = Chain.all
+    @chains = Chain.where(user_id: current_user.id)
     @ring = Ring.new
   end
   def new
@@ -8,6 +9,7 @@ class ChainsController < ApplicationController
   end
   def create
     @chain = Chain.new(strong_params)
+    @chain.user_id = current_user.id
     if @chain.save
       flash[:Successfully] = "Successfully created..."
       redirect_to chains_path
@@ -17,18 +19,22 @@ class ChainsController < ApplicationController
     end
   end
   def destroy
-    @chain = Chain.find(params[:id])
     @chain.destroy
     flash[:Successfully] = "Successfully created..."
     redirect_to chains_path
   end
   def show
-      @gun = 86400
-      @fix = (Time.new).yday
-      @chain = Chain.find(params[:id])
+      @time = (Time.new).yday
   end
   private
   def strong_params
     params.require(:chain).permit(:name,:desc,:break)
+  end
+  def chain_owner
+    @chain = Chain.find(params[:id])
+    unless current_user.id == @chain.user_id
+      flash[:error] = 'Erişim Yetkin yok.'
+      redirect_to chains_path
+     end
   end
 end

@@ -2,6 +2,8 @@ class RingsController < ApplicationController
   def create
     @chain = Chain.find(params[:chain_id])
     @ring = Ring.new(strong_params)
+    @ring.day = (Time.new).yday
+    @ring.chain_id = params[:chain_id]
     if @chain.rings.where(day: (Time.new).yday).any?
       update
     elsif
@@ -20,7 +22,7 @@ class RingsController < ApplicationController
   end
   private
   def strong_params
-    params.require(:ring).permit(:chain_id,:day,:info)
+    params.require(:ring).permit(:info)
   end
   def update
     @chain = Chain.find(params[:chain_id])

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'chains#index'
+  devise_for :users
+  root 'home#index'
   resources :chains do
     resources :rings
   end

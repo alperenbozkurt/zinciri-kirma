@@ -13,8 +13,6 @@
         - else
           .panel.panel-default
             = form_for([chain,@ring]) do |f|
-              = f.hidden_field :chain_id, value: chain.id
               = f.text_field :info, placeholder: 'Bugün Ne Yaptın', class: 'form-control'
-              = f.hidden_field :day, value: (Time.new).yday
               %br
               = f.submit 'Bugünü Ekle', class: 'btn btn-default'
