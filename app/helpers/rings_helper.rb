@@ -1,0 +1,2 @@
+module RingsHelper
+end

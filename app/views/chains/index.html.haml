@@ -1,0 +1,18 @@
+-@chains.each do |chain|
+  .col-md-3.text-center
+    .panel.panel-success
+      .panel-heading
+        = link_to chain.name, chain_path(chain)
+        = link_to 'x', chain_path(chain), method: :delete
+      .panel-body
+        = chain.desc
+        %br
+        %br
+        - if chain.rings.where(day: (Time.new).yday).any?
+          %span.glyphicon.glyphicon-ok
+        - else
+          .panel.panel-default
+            = form_for([chain,@ring]) do |f|
+              = f.text_field :info, placeholder: 'Bugün Ne Yaptın', class: 'form-control'
+              %br
+              = f.submit 'Bugünü Ekle', class: 'btn btn-default'
