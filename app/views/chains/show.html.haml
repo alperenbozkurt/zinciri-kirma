@@ -4,7 +4,7 @@
 - else
   -365.times do |i|
     .col-md-1.text-center.col-xs-3
-      - a = Ring.find_by day: i
+      - a = @chain.rings.find_by day: i
       - if !a.nil?
         .panel.panel-success
           .panel-heading
