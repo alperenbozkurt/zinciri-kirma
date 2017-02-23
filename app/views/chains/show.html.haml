@@ -4,22 +4,22 @@
 - else
   -365.times do |i|
     .col-md-1.text-center.col-xs-3
-      -@chain.rings.each do |ring|
-        - if i == ring.day
-          .panel.panel-success
-            .panel-heading
-              = i
-            .panel-body
-              = ring.info
-        - elsif i > @time
-          .panel.panel-default
-            .panel-heading
-              = i
-            .panel-body
-              XX
-        - else
-          .panel.panel-danger
-            .panel-heading
-              = i
-            .panel-body
-              xx
+      - a = Ring.find_by day: i
+      - if !a.nil?
+        .panel.panel-success
+          .panel-heading
+            = i
+          .panel-body
+            = a.info
+      - elsif i > @time
+        .panel.panel-default
+          .panel-heading
+            = i
+          .panel-body
+            XX
+      - else
+        .panel.panel-danger
+          .panel-heading
+            = i
+          .panel-body
+            xx
