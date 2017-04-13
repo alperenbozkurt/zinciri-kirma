@@ -1,25 +1,30 @@
-- if @chain.rings.empty?
-  .text-center
-    Boş
-- else
-  -365.times do |i|
-    .col-md-1.text-center.col-xs-3
-      - a = @chain.rings.find_by day: i
-      - if !a.nil?
-        .panel.panel-success
-          .panel-heading
-            = i
-          .panel-body
-            = a.info
-      - elsif i > @time
-        .panel.panel-default
-          .panel-heading
-            = i
-          .panel-body
-            XX
-      - else
-        .panel.panel-danger
-          .panel-heading
-            = i
-          .panel-body
-            xx
+#cal-heatmap
+%br
+#onClick-placeholder
+
+:javascript
+  var data = #{@data};
+
+  var cal = new CalHeatMap();
+  cal.init({
+    itemSelector: "#cal-heatmap",
+    domain: "year",
+    subDomain: "day",
+    cellSize: 19,
+    start: new Date(2017, 0),
+    range: 1,
+    data: data,
+    legendColors: {
+  		min: "#efefef",
+  		max: "steelblue"
+  	},
+    legendVerticalPosition: "bottom",
+    legendHorizontalPosition: "right",
+    onClick: function(date, nb) {
+  		$("#onClick-placeholder").html("You just clicked <br/>on <b>" +
+  			date + "</b> <br/>with <b>" +
+  			(nb === null ? "unknown" : nb) + "</b> items"
+  		);
+  	},
+    legend: [10,20,30,40,50,60,70,80,90,100]
+  });

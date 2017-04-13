@@ -25,6 +25,11 @@ class ChainsController < ApplicationController
   end
   def show
       @time = (Time.new).yday
+      hash = Hash.new
+      @chain.rings.each do |ring|
+        hash[ring.as_json["created_at"].to_time.to_i.to_s] = ring.info.to_i
+      end
+      @data = JSON.generate(hash)
   end
   private
   def strong_params

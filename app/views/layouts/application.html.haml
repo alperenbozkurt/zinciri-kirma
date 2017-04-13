@@ -2,9 +2,11 @@
   %head
     %title Zinciri Kırma
     = csrf_meta_tags
-
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{:src => "//d3js.org/d3.v3.min.js", :type => "text/javascript"}
+    %script{:src => "//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js", :type => "text/javascript"}
+    %link{:href => "//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css", :rel => "stylesheet"}/
 
   %body
     %nav.navbar.navbar-default.golge
