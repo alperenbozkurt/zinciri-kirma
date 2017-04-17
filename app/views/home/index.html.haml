@@ -1,11 +1,76 @@
-%br
-%br
-%br
-%br
-.row
-  .col-md-6
-    .vid.golge
-      %iframe{:allowfullscreen => "", :frameborder => "0", :src => "https://www.youtube.com/embed/oNmXH2uN0Do"}
-  .col-md-6
-    %h1 Nedir Bu Zincir?
-    %p Hedefini belirle. O hedefe ulaşmak için her gün bir şey yap. Yaptıktan sonra da önüne bir takvim al ve o günün üstüne kocaman bir çarpı koy. Her gün bu işlemi tekrarla. Takvimini çarpılarla doldur. Yan yana gelen bu çarpılardan bir zincir oluştur. Yeni amacın bu zinciri kırmamak!
+%html
+  %head
+    %title Zinciri Kırma
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track': 'reload'
+  %body
+    .top
+      .ui.secondary.pointing.menu.fixed
+        .container.ui
+          .item
+            ZİNCİRİ KIRMA
+          .item
+          %a.item Zincirler
+          %a.item Yeni Zincir
+          .right.menu
+            %a.browse.item
+              Giriş
+              %i.dropdown.icon
+      .segment.bg.inverted
+        .block
+          %h3 Yeni Alışkanlıklar için
+          .kalin
+            ZİNCİRİ
+          .ince
+            KIRMA
+  .bosluk
+  .bosluk
+  .container
+    .row
+      .col-md-3
+        .ui.card
+          .content
+            .header Zinciri Kırma
+            .meta Hedefini belirle. O hedefe ulaşmak için her gün bir şey yap. Yaptıktan sonra da önüne bir takvim al ve o günün üstüne kocaman bir çarpı koy. Her gün bu işlemi tekrarla. Takvimini çarpılarla doldur. Yan yana gelen bu çarpılardan bir zincir oluştur. Yeni amacın bu zinciri kırmamak!
+      .col-md-6
+        .vid.golge
+          %iframe{:allowfullscreen => "", :frameborder => "0", :src => "https://www.youtube.com/embed/oNmXH2uN0Do"}
+
+      .col-md-3
+        .ui.card
+          .content
+            .header Neden Hedef Belirlemeliyim?
+            .meta Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  .bosluk
+  .footer
+    .row
+      .col-md-3.vr
+        %h1.text-center Kurumsal
+        %ul#kurumsal
+          .item Hakkımızda
+          .item Etki
+          .item Takım
+      .col-md-3.vr
+        %h1.text-center Topluluk
+        %ul#Topluluk
+          .item Öneri ve İstek
+          .item Katkıda Bulun
+          .item Reklam
+          .item Basın
+      .col-md-3.vr
+        %h1.text-center Yardım
+        %ul#Yardim
+          .item Nasıl Kullanılır
+          .item Gizlilik
+          .item İlkeler
+      .col-md-3
+        %h1.text-center Bizi Takip Edin
+        %ul#Sosyal
+          .item Facebook
+          .item Twitter
+          .item İnstagram
+    .row
+      .col-md-12.text-center.lisans
+        %h4 Bu sitenin kaynak kodları MIT Lisansı ile lisanslanmıştır.

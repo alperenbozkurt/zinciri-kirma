@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'haml'
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
