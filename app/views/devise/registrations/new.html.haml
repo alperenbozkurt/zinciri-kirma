@@ -1,0 +1,29 @@
+.container
+  .row
+    .col-md-2
+    .col-md-8
+      - if devise_error_messages! != ""
+        %div{:class => "alert alert-danger fade in"}
+          %button.close{"data-dismiss" => "alert"} ×
+          = devise_error_messages!
+    .col-md-2
+  .row
+    .col-md-4
+    .col-md-4
+      .ui.segments
+        .ui.segment.blue.inverted Kayıt Ol
+        .ui.secondary.segment
+          .ui.form
+            = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+              .field
+                = f.email_field :email, autofocus: true, placeholder: 'E Posta'
+              .field
+                = f.password_field :password, autocomplete: "off", placeholder: 'Parola'
+              .field
+                = f.password_field :password_confirmation, autocomplete: "off",placeholder: 'Tekrar Parola'
+
+              .actions
+                = f.submit "Kayıt Ol", :class => 'ui blue button'
+          = render "devise/shared/links"
+
+    .col-md-4

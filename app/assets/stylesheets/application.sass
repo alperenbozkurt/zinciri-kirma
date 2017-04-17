@@ -6,7 +6,12 @@ $import-google-fonts: true !default
 $font-url: 'http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic&subset=latin'
 $font-name: 'Lato' !default
 $font-family: $font-name, 'Helvetica Neue', Arial, Helvetica, sans-serif !default
-
+.ui.blue.button
+  background-color: #3498db
+body
+  background-color: #ecf0f1
+.bosluk
+  height: 90px
 .navbar-default
   border-radius: 0px
   left: 0px
@@ -24,3 +29,57 @@ $font-family: $font-name, 'Helvetica Neue', Arial, Helvetica, sans-serif !defaul
     left: 0
     width: 100%
     height: 100%
+$bgDefault   : #3498db
+$bgHighlight : #2980b9
+$colDefault  : #ecf0f1
+$colHighlight: #2c3e50
+.navbar-default
+  background-color: $bgDefault
+  border-color: $bgHighlight
+  .navbar-brand
+    color: $colDefault
+    &:hover, &:focus
+      color: $colHighlight
+  .navbar-text
+    color: $colDefault
+  .navbar-nav
+    > li
+      > a
+        color: $colDefault
+        &:hover,  &:focus
+          color: $colHighlight
+    > .active
+      > a, > a:hover, > a:focus
+        color: $colHighlight
+        background-color: $bgHighlight
+    > .open
+      > a, > a:hover, > a:focus
+        color: $colHighlight
+        background-color: $bgHighlight
+  .navbar-toggle
+    border-color: $bgHighlight
+    &:hover, &:focus
+      background-color: $bgHighlight
+    .icon-bar
+      background-color: $colDefault
+  .navbar-collapse,
+  .navbar-form
+    border-color: $colDefault
+  .navbar-link
+    color: $colDefault
+    &:hover
+      color: $colHighlight
+@media (max-width: 767px)
+  .navbar-default .navbar-nav .open .dropdown-menu
+    > li > a
+      color: $colDefault
+      &:hover, &:focus
+        color: $colHighlight
+    > .active
+      > a, > a:hover, > a:focus,
+        color: $colHighlight
+        background-color: $bgHighlight
+.ui.secondary.segment
+  background-color: #fff
+.ui.inverted.blue.segment
+  background-color: #3498db

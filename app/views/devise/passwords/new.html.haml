@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-md-2
+    .col-md-8
+      - if devise_error_messages! != ""
+        %div{:class => "alert alert-danger fade in"}
+          %button.close{"data-dismiss" => "alert"} ×
+          = devise_error_messages!
+    .col-md-2
+  .row
+    .col-md-4
+    .col-md-4
+      .ui.segments
+        .ui.segment.blue.inverted Parolamı Unuttum
+        .ui.secondary.segment
+          .ui.form
+            = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+              .field
+              .field
+                = f.email_field :email, autofocus: true, placeholder: 'E Posta'
+              .actions
+                = f.submit "Parolamı Sıfırla", :class => 'ui blue button'
+          = render "devise/shared/links"
+
+    .col-md-4
