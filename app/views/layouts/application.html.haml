@@ -29,7 +29,7 @@
                 %a{:href => new_chain_path} Yeni Zincir
           %ul.nav.navbar-nav.navbar-right
             - if current_user.present?
-              %li= link_to current_user.email, root_path
+              %li= link_to current_user.username, root_path
               %li= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete
             - else
               %li.dropdown

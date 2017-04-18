@@ -8,7 +8,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '04f09f211c96b2fcac9b229777f1533f8643dd607782dbf0186c4c61f7742a342cc6882f6e11ef522c1a0b212b5f3cef9e713def589e01347f5b1f9746a03bf0'
   config.secret_key = 'd4dd8ebb844b3b0a5e72f08fe33d35e217af920743b6eb1291159a520effeb461dcda9ff62f097b591729223d2042d1548b83aa8536339b761d234973dbc84f7'
-  
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -36,7 +36,7 @@ Devise.setup do |config|
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
-
+  config.authentication_keys = [ :login ]
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,
