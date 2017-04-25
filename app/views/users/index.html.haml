@@ -3,7 +3,7 @@
     .col-md-3
       .ui.card
         .image
-          %img{:src => image_url(@user.avatar.url(:medium))}/
+          = image_tag(@user.avatar.url(:medium))
         .content
           .header Alperen Bozkurt
           .meta
