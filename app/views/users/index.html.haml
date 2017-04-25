@@ -3,7 +3,7 @@
     .col-md-3
       .ui.card
         .image
-          %img{:src => asset_path("profile.png")}/
+          %img{:src => image_url("profile.png")}/
         .content
           .header Alperen Bozkurt
           .meta
@@ -15,7 +15,7 @@
         .extra.content
           %span.right.floated
             = @user.created_at.year
-            \- 
+            \-
             = @user.created_at.mon
 
           %span
@@ -27,7 +27,7 @@
           - @user.chains.each do |chain|
             .item
               .image
-                %img{:src => asset_path("no-image.png")}/
+                %img{:src => image_url("no-image.png")}/
               .content
                 = link_to chain.name, chain_path(chain), class: 'header'
                 .meta
