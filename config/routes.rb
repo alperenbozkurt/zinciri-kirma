@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :chains do
     resources :rings
   end
+  get '/:username', to: 'users#index', as: 'profile'
 end

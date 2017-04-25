@@ -1,0 +1,40 @@
+.container
+  .row
+    .col-md-3
+      .ui.card
+        .image
+          %img{:src => asset_path("profile.png")}/
+        .content
+          .header Alperen Bozkurt
+          .meta
+            %a
+              @
+              = @user.username
+          .description
+            Buraya birkaç cümle yazılacak.
+        .extra.content
+          %span.right.floated
+            = @user.created_at.year
+            \- 
+            = @user.created_at.mon
+
+          %span
+            %i.user.icon
+            100 Takipçi
+    .col-md-9
+      .ui.padded.segment
+        .ui.items
+          - @user.chains.each do |chain|
+            .item
+              .image
+                %img{:src => asset_path("no-image.png")}/
+              .content
+                = link_to chain.name, chain_path(chain), class: 'header'
+                .meta
+                  %span
+                    = chain.rings.size
+                    Gün Girdi Var.
+                .description
+                  %p
+                .extra
+                  = chain.desc
