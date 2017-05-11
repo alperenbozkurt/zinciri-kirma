@@ -12,6 +12,8 @@
               = @user.username
           .description
             Buraya birkaç cümle yazılacak.
+            %br
+            = link_to 'Profili Düzenle', edit_user_registration_path, class: 'header'
         .extra.content
           %span.right.floated
             = @user.created_at.year
