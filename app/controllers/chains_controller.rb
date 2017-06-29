@@ -1,5 +1,5 @@
 class ChainsController < ApplicationController
-  before_action :chain_owner, only: [:destroy, :show]
+  before_action :chain_owner, only: [:destroy]
   def index
     @chains = Chain.where(user_id: current_user.id)
     @ring = Ring.new
@@ -11,7 +11,7 @@ class ChainsController < ApplicationController
     @chain = Chain.new(strong_params)
     @chain.user_id = current_user.id
     if @chain.save
-      flash[:Successfully] = "Successfully created..."
+      flash[:notice] = "Successfully created..."
       redirect_to chains_path
     else
       flash[:error] = "İşlem Başarısız..."
@@ -20,16 +20,18 @@ class ChainsController < ApplicationController
   end
   def destroy
     @chain.destroy
-    flash[:Successfully] = "Successfully created..."
+    flash[:notice] = "Successfully created..."
     redirect_to chains_path
   end
   def show
-      @time = (Time.new).yday
-      hash = Hash.new
-      @chain.rings.each do |ring|
-        hash[ring.as_json["created_at"].to_time.to_i.to_s] = ring.info.to_i
-      end
-      @data = JSON.generate(hash)
+    @chain = Chain.find(params[:id])
+    @time = (Time.new).yday
+    hash = Hash.new
+    @chain.rings.each do |ring|
+      hash[ring.as_json["created_at"].to_time.to_i.to_s] = ring.info.to_i
+    end
+    @data = JSON.generate(hash)
+    @comment = Comment.new
   end
   private
   def strong_params

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :validatable, :authentication_keys => [:login]
   has_many :chains
+  has_many :comments
 
   validates :username, :uniqueness => { :case_sensitive => false }
   attr_accessor :login

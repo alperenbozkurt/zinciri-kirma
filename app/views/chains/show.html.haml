@@ -1,12 +1,52 @@
 .panel.panel-default
   .panel-heading
-    = @chain.name
+    .ui.items
+      .item
+        %a.ui.mini.avatar.image
+          = image_tag(@chain.user.avatar.url(:thumb))
+        .middle.aligned.content
+          .header
+            = link_to @chain.user.username, profile_path(@chain.user.username)
+            >
+            = link_to @chain.name, chain_path(@chain)
+            %i.like.icon
   .panel-body
     #cal-heatmap
     %br
-    #onClick-placeholder
-    #info
-      Toplam #{@chain.rings.count} gün zincire halka eklenmiş.
+    .col-md-7
+      #onClick-placeholder
+      .bilgi
+        Toplam #{@chain.rings.count} gün zincire halka eklenmiş.
+
+
+.col-md-7
+  .panel.panel-default
+    .panel-heading
+      Yorumlar
+    .panel-body
+      .ui.minimal.comments
+        - if @chain.comments.any?
+          - @chain.comments.each do |comment|
+            .comment
+              .avatar
+                = image_tag(comment.user.avatar.url(:thumb))
+              .content
+                = link_to comment.user.username, profile_path(comment.user.username), class: 'author'
+                |
+                = link_to "Yorumu Sil", chain_comment_path(@chain,comment), :method => :delete
+                .metadata
+                  %span.date
+                    = comment.created_at.strftime("%d/%m/%Y  %H:%M")
+                .text
+                  = comment.content
+        - else
+          Hiç Yorum Yapılmamış..
+
+        %form.ui.reply.form
+          .field
+        = form_for([@chain,@comment]) do |f|
+          = f.text_field :content, placeholder: 'Bir yorum bırak', class: 'form-control', style: "width: 70%; float:left"
+          = f.submit 'Yorum Yap', class: 'btn btn-default', style: "width: 27%"
 
 :javascript
   var data = #{@data};
