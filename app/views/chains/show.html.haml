@@ -27,7 +27,7 @@
       .ui.minimal.comments
         - if @chain.comments.any?
           - @chain.comments.each do |comment|
-            .comment
+            .comment.yorum
               .avatar
                 = image_tag(comment.user.avatar.url(:thumb))
               .content
@@ -42,8 +42,7 @@
         - else
           Hiç Yorum Yapılmamış..
 
-        %form.ui.reply.form
-          .field
+
         = form_for([@chain,@comment]) do |f|
           = f.text_field :content, placeholder: 'Bir yorum bırak', class: 'form-control', style: "width: 70%; float:left"
           = f.submit 'Yorum Yap', class: 'btn btn-default', style: "width: 27%"

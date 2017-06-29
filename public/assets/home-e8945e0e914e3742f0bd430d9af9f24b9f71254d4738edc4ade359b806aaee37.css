@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,700");
+/* line 3, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+body {
+  background-color: #ecf0f1;
+}
+
+/* line 5, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.ui.menu.secondary.pointing {
+  margin-bottom: 0px;
+  border: 0px;
+  box-shadow: 0px 10px 10px -7px rgba(81, 81, 81, 0.3);
+  background-color: #3498db;
+}
+/* line 10, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.ui.menu.secondary.pointing .item {
+  color: white;
+}
+/* line 12, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.ui.menu.secondary.pointing .item:link {
+  color: white;
+}
+
+/* line 15, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.bg {
+  background: #3498db;
+  height: 500px;
+  width: 100%;
+  box-shadow: 0px 10px 10px -7px rgba(81, 81, 81, 0.3);
+  transform-origin: right bottom;
+  transform: rotate(-10deg);
+  z-index: -1;
+  bottom: 0;
+}
+
+/* line 24, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.block {
+  padding-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 1366px;
+  color: #ecf0f1;
+}
+
+/* line 32, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.kalin {
+  font-size: 190px;
+  margin-top: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: 900;
+  float: left;
+  margin-left: 50px;
+  display: block;
+  font-family: "Ubuntu", sans-serif;
+  text-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+/* line 44, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+h3 {
+  text-align: center;
+  font-size: 50px;
+}
+
+/* line 47, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.ince {
+  font-size: 175px;
+  margin-top: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  float: left;
+  margin-left: 50px;
+  font-family: "Ubuntu", sans-serif;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+/* line 59, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.golge {
+  box-shadow: 0px 0px 10px 2px rgba(81, 81, 81, 0.7);
+}
+
+/* line 61, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.vid {
+  border-radius: 5px;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 60px;
+  overflow: hidden;
+}
+/* line 67, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.vid iframe, .vid object, .vid embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 73, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.top {
+  height: 500px;
+  background: #3498db;
+}
+
+/* line 76, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.footer {
+  padding: 50px;
+  height: 350px;
+  background: #3498db;
+  color: #ecf0f1;
+  box-shadow: 0px 0px 10px 2px rgba(81, 81, 81, 0.3);
+}
+/* line 82, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.footer .vr {
+  border-right: 1px solid #2980b9;
+  min-height: 200px;
+}
+/* line 85, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.footer .lisans {
+  padding: 40px;
+}
+
+/* line 87, /home/alperen/Masaüstü/Yedek/zinciri-kirma/app/assets/stylesheets/home.sass */
+.ui.card {
+  box-shadow: 0px 0px 10px 1px rgba(81, 81, 81, 0.3);
+}
