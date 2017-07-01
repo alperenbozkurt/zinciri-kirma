@@ -32,8 +32,9 @@
                 = image_tag(comment.user.avatar.url(:thumb))
               .content
                 = link_to comment.user.username, profile_path(comment.user.username), class: 'author'
-                |
-                = link_to "Yorumu Sil", chain_comment_path(@chain,comment), :method => :delete
+                - if comment.user_id == current_user.id
+                  |
+                  = link_to "Yorumu Sil", chain_comment_path(@chain,comment), :method => :delete
                 .metadata
                   %span.date
                     = comment.created_at.strftime("%d/%m/%Y  %H:%M")
