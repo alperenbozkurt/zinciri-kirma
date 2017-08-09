@@ -26,11 +26,10 @@ class ChainsController < ApplicationController
   def show
     @chain = Chain.find(params[:id])
     @time = (Time.new).yday
-    hash = Hash.new
+    @data = Hash.new
     @chain.rings.each do |ring|
-      hash[ring.as_json["created_at"].to_time.to_i.to_s] = ring.info.to_i
+      @data[ring["created_at"].to_time.to_i] = ring.info.to_i
     end
-    @data = JSON.generate(hash)
     @comment = Comment.new
   end
   private
