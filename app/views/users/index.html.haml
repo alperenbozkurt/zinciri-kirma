@@ -22,9 +22,14 @@
 
           %span
             %i.user.icon
-            100 Takipçi
+            #{@user.followers.count} Takipçi
+      = render 'components/follow_button'
     .col-md-9
-      .ui.padded.segment
+      .ui.top.attached.tabular.menu
+        %a.item.active{"data-tab" => "first"} Zincirleri
+        %a.item{"data-tab" => "second"} Takipcileri
+        %a.item{"data-tab" => "third"} Takip Ettikleri
+      .ui.bottom.attached.tab.segment.active{"data-tab" => "first"}
         .ui.items
           - @user.chains.each do |chain|
             .item
@@ -40,3 +45,39 @@
                   %p
                 .extra
                   = chain.desc
+
+      .ui.bottom.attached.tab.segment{"data-tab" => "second"}
+        .ui.special.cards.five
+          - @user.followers.each do |e|
+            .card
+              .blurring.dimmable.image{style: "height:146px"}
+                .ui.dimmer
+                  .content
+                    .center
+                      = render 'components/follow_button'
+                = image_tag(e.avatar.url(:medium))
+              .content
+                %a.header
+                  = link_to "@" + e.username, profile_path(e.username)
+              .extra.content
+                = render 'components/follow_button'
+      .ui.bottom.attached.tab.segment{"data-tab" => "third"}
+        .ui.special.cards.five
+          - @user.following.each do |e|
+            .card
+              .blurring.dimmable.image{style: "height:146px"}
+                .ui.dimmer
+                  .content
+                    .center
+                      = render 'components/follow_button'
+                = image_tag(e.avatar.url(:medium))
+              .content
+                %a.header
+                  = link_to "@" + e.username, profile_path(e.username)
+              .extra.content
+                = render 'components/follow_button'
+
+:javascript
+  $('.menu .item')
+    .tab()
+  ;
