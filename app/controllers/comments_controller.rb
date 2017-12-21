@@ -5,16 +5,16 @@ class CommentsController < ApplicationController
     @comment.chain_id = params[:chain_id]
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:notice] = "Successfully created..."
+      flash[:notice] = 'Yorum Yapıldı.'
       redirect_to chain_path(params[:chain_id])
     else
-      flash[:notice] = "Yanlış gitti..."
+      flash[:notice] = 'Yanlış gitti...'
       render 'home/index'
     end
   end
   def destroy
     @comment.destroy
-    flash[:notice] = "Yorum Başarıyla Silindi"
+    flash[:notice] = 'Yorum Başarıyla Silindi'
     redirect_to root_path
   end
   def comment_owner

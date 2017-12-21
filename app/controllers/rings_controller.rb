@@ -8,10 +8,10 @@ class RingsController < ApplicationController
       update
     elsif
       if @ring.save
-        flash[:Successfully] = "Successfully created..."
+        flash[:Successfully] = 'Bugünkü girdi girildi.'
         redirect_to chains_path
       else
-        flash[:error] = "İşlem Başarısız..."
+        flash[:error] = 'İşlem Başarısız.'
         render :new
       end
     end
@@ -29,10 +29,10 @@ class RingsController < ApplicationController
     @ring = Ring.find(@chain.rings.where(day: (Time.new).yday).first)
     @ring.info = params[:ring][:info]
     if @ring.save
-      flash[:Successfully] = "Güncelleme Başarılı..."
+      flash[:Successfully] = 'Güncelleme Başarılı...'
       redirect_to chains_path
     else
-      flash[:error] = "Güncelleme Başarısız..."
+      flash[:error] = 'Güncelleme Başarısız...'
       render :new
     end
   end

@@ -11,16 +11,16 @@ class ChainsController < ApplicationController
     @chain = Chain.new(strong_params)
     @chain.user_id = current_user.id
     if @chain.save
-      flash[:notice] = "Successfully created..."
+      flash[:notice] = 'Zincir Başarıyla Oluşturuldu.'
       redirect_to chains_path
     else
-      flash[:error] = "İşlem Başarısız..."
+      flash[:error] = 'İşlem Başarısız.'
       render :new
     end
   end
   def destroy
     @chain.destroy
-    flash[:notice] = "Successfully created..."
+    flash[:notice] = 'Zincir Başarıyla Silindi.'
     redirect_to chains_path
   end
   def show
