@@ -11,7 +11,6 @@ body
     color: white
     &:link
       color: white
-
 .bg
   background: #3498db
   height: 500px
@@ -74,15 +73,55 @@ h3
   height: 500px
   background: #3498db
 .footer
-  padding: 50px
-  height: 350px
   background: #3498db
   color: #ecf0f1
   box-shadow: 0px 0px 10px 2px rgba(81, 81, 81, 0.3)
-  .vr
-    border-right: 1px solid #2980b9
-    min-height: 200px
-  .lisans
-    padding: 40px
+  padding: 40px
 .ui.card
   box-shadow: 0px 0px 10px 1px rgba(81, 81, 81, 0.3)
+.block-mobile
+  display: none
+@media only screen and (max-width: 1200px)
+  .block-mobile
+    display: block
+    height: 370px
+    background-color: #3498db
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%)
+    color: #ecf0f1
+
+    h3
+      padding-top: 170px
+      font-size: 15px
+    .zincirikirma
+      text-align: center
+      padding-top: 30px
+      margin: auto
+      position: relative
+      width: 375px
+      .incex
+        font-size: 40px
+        margin: 0px
+        float: left
+        font-weight: 500
+        text-align: left
+      .kalinx
+        float: left
+        font-weight: 900
+        padding-left: 7%
+        font-size: 50px
+        margin: 0px
+  .segment
+    display: none
+  .bg
+    display: none
+  .inverted
+    display: none
+  .top
+    height: 0px
+    display: inline
+  .bosluk
+    height: 1px
+  .ui.card
+    margin-top: 20px !important
+    margin-bottom: 20px !important
+    width: 100%
